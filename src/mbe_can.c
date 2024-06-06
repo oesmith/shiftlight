@@ -42,7 +42,7 @@ static uint16_t rpm = 0;
 static float temp = 0;
 static float volts = 0;
 
-#define POLL_INTERVAL_MS 50
+#define POLL_INTERVAL_MS 100
 #define POLL_TIMEOUT_MS 500
 #define DATA_VALIDITY_MICROS 2000000
 

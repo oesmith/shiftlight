@@ -6,10 +6,10 @@
 
 #define NEOPIXEL_PIN 16
 #define NEOPIXEL_NUM_PIXELS 8
-#define NEOPIXEL_INTERVAL_MS 10
+#define NEOPIXEL_INTERVAL_MS 20
 
-#define SLOW_FLASH(ts) (((ts / 300000) % 2) == 0)
-#define FAST_FLASH(ts) (((ts / 100000) % 2) == 0)
+#define SLOW_FLASH(ts) (((to_ms_since_boot(ts) / 300) % 2) == 0)
+#define FAST_FLASH(ts) (((to_ms_since_boot(ts) / 100) % 2) == 0)
 
 #define BUTTON_PIN 22
 #define BUTTON_REPEAT_MS 200
@@ -48,7 +48,7 @@ static absolute_time_t show_brightness_until;
 
 static absolute_time_t button_locked_until;
 
-static uint8_t brightness = 0;
+static uint8_t brightness = 3;
 
 void update_brightness(absolute_time_t ts);
 void update_leds(absolute_time_t ts);
